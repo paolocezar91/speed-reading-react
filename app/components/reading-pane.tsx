@@ -30,6 +30,15 @@ export default function ReadingPane({ phrase }: { phrase: string }) {
     return () => clearTimeout(timeout);
   }, [currentWordIdx, speed, phraseAsArray.length, status, speedToMs]);
 
+  const handleTogglePlay = useCallback(() => {
+    setStatus((prev) => (prev === "playing" ? "paused" : "playing"));
+  }, [setStatus]);
+
+  const handleReset = useCallback(() => {
+    setStatus("paused");
+    setCurrentWordIdx(0);
+  }, []);
+
   return (
     <div className="mb-4 border-b-2 pb-8 mb-8">
       <ReadingDisplay
@@ -40,13 +49,8 @@ export default function ReadingPane({ phrase }: { phrase: string }) {
         speed={speed}
         setSpeed={setSpeed}
         isPlaying={status === "playing"}
-        togglePlay={() =>
-          setStatus((prev) => (prev === "playing" ? "paused" : "playing"))
-        }
-        reset={() => {
-          setStatus("paused");
-          setCurrentWordIdx(0);
-        }}
+        togglePlay={handleTogglePlay}
+        reset={handleReset}
       />
     </div>
   );

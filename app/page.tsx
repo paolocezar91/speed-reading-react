@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen items-start py-12 justify-center bg-zinc-50 font-sans dark:bg-background gap-4">
-      <div className="flex flex-col h-full w-150">
+      <div className="flex flex-col h-full md:w-150 w-80 mx-auto">
         <div className="w-full mb-4 pb-4 mb-4">
           <p className="text-lg">
             <strong>RSVP (Rapid Serial Visual Presentation)</strong> to help you

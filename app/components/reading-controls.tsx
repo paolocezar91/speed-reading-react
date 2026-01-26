@@ -16,10 +16,10 @@ export function ReadingControls({
   togglePlay: () => void;
 }) {
   const buttonClass =
-    "px-2 flex items-center justify-between gap-2 h-12 font-bold rounded border-1 bg-background cursor-pointer hover:bg-foreground hover:*:text-background hover:text-background";
+    "px-2 flex items-center justify-between gap-2 h-12 font-bold rounded border-1 bg-background cursor-pointer active:bg-foreground active:*:text-background active:text-background hover:bg-foreground hover:*:text-background hover:text-background";
 
   return (
-    <div className="flex justify-between gap-3 w-full pt-8">
+    <div className="flex flex-col items-center gap-y-4 md:flex-row md:items-start md:justify-around md:w-full pt-8">
       <div className="flex gap-3 items-center">
         <button className={`w-22 ${buttonClass}`} onClick={togglePlay}>
           {isPlaying ? (
@@ -41,7 +41,7 @@ export function ReadingControls({
         <div className="flex items-center gap-2">
           <span className="text-sm font-bold">Speed (WPM):</span>
           <input
-            className="border-2 rounded-xl px-2 py-4 w-25 h-8"
+            className="border-2 rounded-xl px-2 py-4 w-30 h-8"
             type="number"
             value={speed}
             min={100}
